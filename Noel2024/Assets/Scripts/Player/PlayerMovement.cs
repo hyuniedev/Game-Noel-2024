@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    
+    [SerializeField]
+    private PlayerAnimation playerAnimation;
     [SerializeField]
     private float speedMovement = 10f;
     [SerializeField]
@@ -17,7 +18,9 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-           horizontal = Input.GetAxis("Horizontal");
+        Debug.Log(rb.linearVelocity.y);
+        playerAnimation.PlayAnimation(Mathf.Abs(horizontal),rb.linearVelocity.y, CheckGrounded());
+           horizontal = Input.GetAxisRaw("Horizontal");
            Movement();
            if (CheckGrounded() && Input.GetKeyDown(KeyCode.Space))
            {
@@ -30,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(horizontal) > 0)
         {
             rb.linearVelocity = new Vector2(horizontal * speedMovement, rb.linearVelocity.y);
+            transform.localScale = new Vector3(horizontal, 1, 1);
         }
         else
         {
