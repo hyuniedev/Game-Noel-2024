@@ -13,6 +13,7 @@ public class TrapAbstract : MonoBehaviour
     private void Start()
     {
         GO_Trap = transform.Find("Trap").gameObject;
+        Debug.Log(GO_Trap.name);
     }
 
     private void Update()
@@ -25,6 +26,7 @@ public class TrapAbstract : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.gameObject.name);
         trapActive = true;
     }
 

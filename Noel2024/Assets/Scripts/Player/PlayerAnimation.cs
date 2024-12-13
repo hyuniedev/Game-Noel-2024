@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -10,10 +11,20 @@ public class PlayerAnimation : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void PlayAnimation(float VectorX, float VectorY, bool IsGround)
+    public void PlayAnimation(float VectorX, float VectorY, bool IsGround, bool IsDead)
     {
         animator.SetFloat("VectorX", VectorX);
         animator.SetFloat("VectorY", VectorY);
         animator.SetBool("IsGround", IsGround);
+        if (IsDead)
+        {
+            animator.Play("die");
+            Invoke("StopScreen",0.8f);
+        }
+    }
+
+    private void StopScreen()
+    {
+        Time.timeScale = 0;
     }
 }
