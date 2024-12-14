@@ -22,6 +22,25 @@ public class GameManager
         }
     }
 
+    public event Action OnPlayerDeath;
+    public event Action OnPlayerCompleted;
+    public event Action OnPlayerJumped;
+
+    public void EventJumped()
+    {
+        OnPlayerJumped?.Invoke();
+    }
+
+    public void EventDeath()
+    {
+        OnPlayerDeath?.Invoke();
+    }
+
+    public void EventCompleted()
+    {
+        OnPlayerCompleted?.Invoke();
+    }
+    
     public void NextLevel()
     {
         SceneManager.LoadScene(indexBuildScreen + 1);

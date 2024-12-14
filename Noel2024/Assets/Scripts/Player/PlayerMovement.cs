@@ -23,6 +23,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         IsDead = false;
+        GameManager.Instance.OnPlayerDeath += Dead;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnPlayerDeath -= Dead;
     }
 
     void Update()
@@ -35,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if (CheckGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            GameManager.Instance.EventJumped();
         }
     }
     
@@ -58,9 +65,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Trap"))
+        if (other.gameObject.CompareTag("Trap") && !IsDead)
         {
-            Dead();
+            GameManager.Instance.EventDeath();
         }
     }
 
@@ -68,14 +75,18 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.tag == "Door")
         {
-            GameManager.Instance.NextLevel();
+            GameManager.Instance.EventCompleted();
+            Invoke(nameof(NextLevel),0.8f);
         }
+    }
+
+    private void NextLevel()
+    {
+        GameManager.Instance.NextLevel();
     }
 
     private void Dead()
     {
         IsDead = true;
-        GetComponent<Collider2D>().enabled = false;
-        rb.gravityScale = 0;
     }
 }

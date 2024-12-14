@@ -1262,7 +1262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3712440233114244872, guid: 0bd6a06417cebc94885b040444e6ca89, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.63
+      value: -4.83
       objectReference: {fileID: 0}
     - target: {fileID: 3712440233114244872, guid: 0bd6a06417cebc94885b040444e6ca89, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1321,6 +1321,26 @@ PrefabInstance:
       propertyPath: levelText
       value: 
       objectReference: {fileID: 1404554915}
+    - target: {fileID: 6366957289560822372, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
+      propertyPath: jumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6dce23b883bdeda4586d9e0e3cb3bb7d, type: 3}
+    - target: {fileID: 6366957289560822372, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
+      propertyPath: completedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d48e2dab85da0f4f83a3f18fd32a80c, type: 3}
+    - target: {fileID: 6366957289560822372, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
+      propertyPath: onDeadClips.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6366957289560822372, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
+      propertyPath: 'onDeadClips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: aef403a2adb21e643b3f24c71a87946f, type: 3}
+    - target: {fileID: 6366957289560822372, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
+      propertyPath: 'onDeadClips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: f54795d42db33c34daba2d8a21dd7dec, type: 3}
     - target: {fileID: 8179379041142751983, guid: 1a1d595fc1c96814d9044273e7a67a0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

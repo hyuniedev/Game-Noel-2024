@@ -8,10 +8,6 @@ public class SceneController : MonoBehaviour
     [SerializeField]
     private Text levelText;
 
-    private void Start()
-    {
-        levelText.text = "Level: " + (GameManager.Instance.indexBuildScreen + 1);
-    }
     private void Update()
     {
         if (PlayerMovement.IsDead && Input.anyKeyDown)
