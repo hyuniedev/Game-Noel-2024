@@ -16,6 +16,7 @@ public class SoundController : MonoBehaviour
     private AudioClip currentClip;
     private void Awake()
     {
+        DontDestroyOnLoad(this);
         source = GetComponent<AudioSource>();
     }
 

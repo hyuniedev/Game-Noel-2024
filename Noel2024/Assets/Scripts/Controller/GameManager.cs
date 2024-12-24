@@ -43,11 +43,12 @@ public class GameManager
     
     public void NextLevel()
     {
-        SceneManager.LoadScene(indexBuildScreen + 1);
         indexBuildScreen += 1;
-        if (indexBuildScreen == 6)
+        if (indexBuildScreen == 7)
         {
             indexBuildScreen = 0;
         }
+        SceneManager.LoadScene(indexBuildScreen);
+        
     }
 }
