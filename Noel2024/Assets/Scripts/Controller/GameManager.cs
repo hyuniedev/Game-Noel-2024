@@ -45,5 +45,9 @@ public class GameManager
     {
         SceneManager.LoadScene(indexBuildScreen + 1);
         indexBuildScreen += 1;
+        if (indexBuildScreen == 6)
+        {
+            indexBuildScreen = 0;
+        }
     }
 }

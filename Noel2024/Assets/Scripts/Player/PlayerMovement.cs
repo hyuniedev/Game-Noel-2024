@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -65,18 +63,26 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Trap") && !IsDead)
+        if ((other.gameObject.CompareTag("Trap") || other.gameObject.CompareTag("LineLimit")) && !IsDead)
         {
             GameManager.Instance.EventDeath();
         }
+        if (other.gameObject.CompareTag("GroundMove"))
+        {
+            transform.SetParent(other.gameObject.transform.parent);
+        }
     }
-
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Door")
+        if (other.gameObject.CompareTag("Door"))
         {
             GameManager.Instance.EventCompleted();
-            Invoke(nameof(NextLevel),0.8f);
+            Invoke(nameof(NextLevel),0.7f);
+        }
+
+        if (other.gameObject.CompareTag("GroundMove"))
+        {
+            transform.SetParent(null);
         }
     }
 

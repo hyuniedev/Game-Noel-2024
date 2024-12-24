@@ -9,6 +9,6 @@ public class UIController : MonoBehaviour
 
     private void Start()
     {
-        levelText.text = "Level: " + (GameManager.Instance.indexBuildScreen + 1);
+        levelText.text = "Level: " + (GameManager.Instance.indexBuildScreen);
     }
 }
